@@ -37,16 +37,6 @@ enum EventType:
 
 uint32 EVENT_QUIT = 256
 
-class Window:
-    void __init__(self, pstring title, int width = 640, int height = 480):
-        __void_p_t__ self._handle = create_window(title, width, height, 0)
-        __void_p_t__ self._renderer = create_renderer(self._handle, Null)
-
-    @method
-    void destroy(self):
-        destroy_renderer(self._renderer)
-        destroy_window(self._handle)
-
 __inline__ bool init(uint flags): return C_SDL3.SDL_Init(flags)
 __inline__ void quit(): C_SDL3.SDL_Quit()
 __inline__ pstring get_error(): return C_SDL3.SDL_GetError()
